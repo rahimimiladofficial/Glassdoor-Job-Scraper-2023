@@ -1,8 +1,11 @@
 import glassdor_scraper as gs
+
 import pandas as pd
 path = "D:/dev/ds_salary_project/chromedriver.exe"
 
-df = gs.get_jobs("data scientist", 5, True, path, 5)
+keyword = "data scientist"
+records = 1
 
-print(df)
+df = gs.get_jobs(keyword, records, True, path, 2)
 
+df.to_excel(keyword+str(records)+'.xlsx', index=False)
